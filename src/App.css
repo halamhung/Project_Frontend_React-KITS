@@ -3,3 +3,6 @@
   padding: 0;
   box-sizing: border-box;
 }
+.container-fluid {
+  padding: 0px 35px;
+}
