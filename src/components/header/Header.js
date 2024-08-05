@@ -17,7 +17,8 @@ import {
   List,
   ListItem,
   ThemeProvider,
-  useThemeProps
+  useThemeProps,
+  Container
 } from '@mui/material';
 import {
   Search as SearchIcon,
@@ -29,13 +30,14 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 import Logo from '../../assets/img/logo_shop.png'
 import theme from '../theme';
-import { Container } from 'reactstrap';
+
 
 
 
 const Header = () => {
 
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const handleDrawerOpen = () => setDrawerOpen(true);
@@ -75,9 +77,9 @@ const Header = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <AppBar position="static" sx={{ width: "100%" }}>
-        <Container maxWidth="lg">
-          <Toolbar>
+      <Box sx={{ width: '100%', boxShadow: "rgba(0, 0, 0, 1)", }}>
+        <AppBar position="fixed" sx={{ width: "100%" }}>
+          <Toolbar  >
             {isMobile ? (
               <>
                 <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleDrawerOpen}>
@@ -88,18 +90,27 @@ const Header = () => {
                 </Drawer>
               </>
             ) : (
-              <Grid container mt={3} justifyContent="center" alignItems="center">
-                <Grid item xs={3}>
+              <Grid container mt={3} justifyContent="center" alignItems="center" px={2}>
+                <Grid item md={3} xs={3} container justifyContent="center"  >
                   <Typography variant="h6" component="div">
-                    <img src={Logo} alt="Logo" />
+                    <Box
+                      component="img"
+                      src={Logo}
+                      alt="Logo"
+                      sx={{
+                        width: '95%', // Chiếm toàn bộ chiều rộng của container
+                        maxWidth: '200px', // Giới hạn tối đa chiều rộng
+                        height: 'auto',
+                      }}
+                    />
                   </Typography>
                 </Grid>
-                <Grid item xs={5}>
+                <Grid item md={5} xs={5} container justifyContent="center">
                   <Autocomplete
                     id="category-select"
                     options={categories}
                     sx={{
-                      width: "80%",
+                      width: "100%",
                       "& .MuiAutocomplete-inputRoot": {
                         padding: 0,
                       },
@@ -131,7 +142,13 @@ const Header = () => {
                     )}
                   />
                 </Grid>
-                <Grid item xs={4} container justifyContent="flex-end" alignItems="center">
+                <Grid item md={3} xs={3} container alignItems="center" width={"90%"} sx={{
+                  justifyContent: {
+                    sm: 'center',
+                    md: 'center',
+                    lg: 'center'
+                  }
+                }}>
                   <Box
                     className="hotline_content"
                     sx={{
@@ -144,13 +161,20 @@ const Header = () => {
                       },
                     }}
                   >
-                    <Grid container alignItems="center">
+                    <Grid container alignItems="center" sx={{
+                      display: {
+                        sm: 'none',
+                        md: 'none',
+                        lg: 'none',
+                        xl: 'inline-flex'
+                      }
+                    }}>
                       <Grid item>
                         <IconButton aria-label="phone" sx={{ animation: "vibrate 0.5s infinite linear" }}>
                           <PhoneIcon />
                         </IconButton>
                       </Grid>
-                      <Grid item xs>
+                      <Grid item  >
                         <Typography variant="h6" component="h6" className="hotline_content_title">
                           <span>Hotline:</span> 19008188
                         </Typography>
@@ -160,7 +184,7 @@ const Header = () => {
                       </Grid>
                     </Grid>
                   </Box>
-                  <Box className="icon_content" ml={3}>
+                  <Box className="icon_content" >
                     <IconButton aria-label="user">
                       <PersonIcon />
                     </IconButton>
@@ -179,33 +203,35 @@ const Header = () => {
               </Grid>
             )}
           </Toolbar>
-        </Container>
-        <hr />
-        <Toolbar>
-          {!isMobile && (
-            <Box sx={{ display: "flex", justifyContent: "center", width: "100%" }}>
-              <Tabs
-                centered
-                sx={{
-                  "& .MuiTabs-indicator": {
-                    backgroundColor: "primary.main",
-                    height: 3,
-                  },
-                }}
-              >
-                <Tab label="Trang chủ" value="trang-chu" />
-                <Tab label="Siêu sale" value="sieu-sale" />
-                <Tab label="Sản phẩm" value="san-pham" />
-                <Tab label="Áo nam" value="ao-nam" />
-                <Tab label="Áo nữ" value="ao-nu" />
-                <Tab label="TeeSpace" value="teespace" />
-              </Tabs>
-            </Box>
-          )}
-        </Toolbar>
-      </AppBar>
-      
-    </ThemeProvider>
+
+          <Toolbar sx={{ display: "flex", justifyContent: "center", width: "100%" }}>
+            {!isMobile && (
+              <Box >
+                <Tabs
+                  centered
+                  sx={{
+                    "& .MuiTabs-indicator": {
+                      backgroundColor: "primary.main",
+                      height: 3,
+                    },
+                  }}
+                >
+                  <Tab label="Trang chủ" value="trang-chu" />
+                  <Tab label="Siêu sale" value="sieu-sale" />
+                  <Tab label="Sản phẩm" value="san-pham" />
+                  <Tab label="Áo nam" value="ao-nam" />
+                  <Tab label="Áo nữ" value="ao-nu" />
+                  <Tab label="TeeSpace" value="teespace" />
+                </Tabs>
+              </Box>
+            )}
+          </Toolbar>
+
+
+
+        </AppBar>
+      </Box>
+    </ThemeProvider >
   );
 };
 
