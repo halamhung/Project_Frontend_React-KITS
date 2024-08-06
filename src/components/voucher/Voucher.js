@@ -25,15 +25,15 @@ export default function Voucher() {
                     <Grid item xs={12} sm={6} md={4} key={index}>
                         <Card className="voucher-card">
                             <CardContent className="voucher-content">
-                                <div className="voucher-left">
-                                    <Typography variant="h6">{item.name}</Typography>
+                                <div className="voucher-header">
+                                    <Typography variant="p">Enjoy Your Gift</Typography>
                                 </div>
-                                <div className="voucher-center">
+                                <div className="voucher-body">
                                     <Typography variant="h4">50% OFF</Typography>
                                     <Typography variant="h5">Coupon</Typography>
                                     <Typography variant="body2">Valid until May, 2023</Typography>
                                 </div>
-                                <div className="voucher-right">
+                                <div className="voucher-footer">
                                     <Typography variant="h6">87878521112</Typography>
                                 </div>
                             </CardContent>

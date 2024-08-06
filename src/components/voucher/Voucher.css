@@ -1,9 +1,11 @@
 .voucher-card {
+  height: 90px;
+  width: 280px;
   border: 1px dashed grey;
   border-radius: 16px;
   position: relative;
   overflow: visible;
-  padding: 20px;
+
   text-align: center;
 }
 
