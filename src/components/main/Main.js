@@ -1,49 +1,53 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   Carousel,
-  CarouselCaption,
+  CarouselItem,
   CarouselControl,
   CarouselIndicators,
-  CarouselItem,
-} from "reactstrap";
-import Header from "../header/Header";
-import { Box } from "@mui/material";
-import Footer from "../footer/Footer";
-
-const banner = [
+  CarouselCaption,
+  Container,
+} from 'reactstrap';
+import Header from '../header/Header';
+import './main.css'; // Import the CSS file
+import Footer from '../footer/Footer';
+import Product from '../product/Product';
+import { Margin, Padding } from '@mui/icons-material';
+import banner1 from '../../assets/img/banner/banner_1.jpg';
+import banner2 from '../../assets/img/banner/banner_2.jpg';
+import banner3 from '../../assets/img/banner/banner_3.jpg';
+import { Grid, Typography } from '@mui/material';
+import Voucher from '../voucher/Voucher';
+const items = [
   {
-    src: "../../assets/img/banner1.jpg",
-    altText: 'Slide 1',
-    caption: 'Slide 1',
+    src: banner1,
+
     key: 1,
   },
   {
-    src: "../../assets/img/banner1.jpg",
-    altText: 'Slide 2',
-    caption: 'Slide 2',
+    src: banner2,
+
     key: 2,
   },
   {
-    src: "../../assets/img/banner1.jpg",
-    altText: 'Slide 3',
-    caption: 'Slide 3',
-    key: 3,
-  }
-]
+    src: banner3,
 
-export default function Main() {
+    key: 3,
+  },
+];
+
+function Main(args) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
 
   const next = () => {
     if (animating) return;
-    const nextIndex = activeIndex === banner.length - 1 ? 0 : activeIndex + 1;
+    const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
     setActiveIndex(nextIndex);
   };
 
   const previous = () => {
     if (animating) return;
-    const nextIndex = activeIndex === 0 ? banner.length - 1 : activeIndex - 1;
+    const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
     setActiveIndex(nextIndex);
   };
 
@@ -52,14 +56,14 @@ export default function Main() {
     setActiveIndex(newIndex);
   };
 
-  const slides = banner.map((item) => {
+  const slides = items.map((item) => {
     return (
       <CarouselItem
         onExiting={() => setAnimating(true)}
         onExited={() => setAnimating(false)}
         key={item.src}
       >
-        <img src={item.src} alt={item.altText} className="carousel-image" />
+        <img src={item.src} alt={item.altText} />
         <CarouselCaption
           captionText={item.caption}
           captionHeader={item.caption}
@@ -71,15 +75,15 @@ export default function Main() {
   return (
     <>
       <Header />
-      <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
-
+      <Container className='mt-3'>
         <Carousel
           activeIndex={activeIndex}
           next={next}
           previous={previous}
+          {...args}
         >
           <CarouselIndicators
-            items={banner}
+            items={items}
             activeIndex={activeIndex}
             onClickHandler={goToIndex}
           />
@@ -95,9 +99,16 @@ export default function Main() {
             onClickHandler={next}
           />
         </Carousel>
+        <Product />
+        <h2 className='uudai'><span>ƯU ĐÃI CHO BẠN</span></h2>
+        <Voucher />
+      </Container>
 
-      </Box>
+
       <Footer />
     </>
+
   );
 }
+
+export default Main;

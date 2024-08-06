@@ -1,0 +1,96 @@
+ul {
+  list-style-type: none;
+}
+
+/* phần sau khi thu nhỏ về sm */
+.slick-container {
+  max-width: 100%; /* Đảm bảo carousel không vượt quá kích thước của container */
+  overflow: hidden; /* Ngăn carousel vượt ra ngoài viền */
+  margin: 0 auto; /* Căn giữa carousel */
+}
+
+.slick-slide {
+  padding: 0 5px; /* Thay đổi khoảng cách giữa các slide nếu cần */
+  box-sizing: border-box; /* Đảm bảo padding không làm thay đổi kích thước */
+}
+
+.slick-slide img {
+  display: block;
+  width: 100%;
+  height: auto; /* Đảm bảo tỷ lệ khung hình đúng */
+}
+
+.slick-track {
+  display: flex;
+}
+
+.slick-prev,
+.slick-next {
+  display: none !important; /* Ẩn các nút điều hướng */
+}
+.slick-container {
+  position: relative; /* Để các điều hướng có thể được đặt đúng cách */
+  max-width: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+/* Các chấm điều hướng */
+.slick-dots {
+  display: flex !important;
+  justify-content: center;
+  padding: 0;
+  margin: 10px 0;
+  position: absolute; /* Đặt nó ở vị trí chính xác */
+  bottom: 10px; /* Điều chỉnh khoảng cách từ dưới cùng nếu cần */
+  width: 100%;
+  z-index: 1; /* Đặt z-index để chấm điều hướng không bị che khuất */
+}
+
+/* Các mục trong chấm điều hướng */
+.slick-dots li {
+  margin: 0 5px;
+}
+
+.slick-dots li button {
+  font-size: 0;
+  border: none;
+  background: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #333; /* Màu sắc của chấm điều hướng */
+}
+
+.slick-dots li.slick-active button {
+  background-color: #000; /* Màu sắc của chấm điều hướng khi được chọn */
+}
+
+/* Điều hướng trước và sau của carousel */
+.slick-prev,
+.slick-next {
+  z-index: 2; /* Đảm bảo các nút điều hướng ở trên cùng */
+  background: rgba(0, 0, 0, 0.5); /* Thêm nền mờ nếu cần */
+  border-radius: 50%;
+  width: 30px; /* Kích thước của nút điều hướng */
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slick-prev {
+  left: 10px; /* Khoảng cách từ bên trái */
+}
+
+.slick-next {
+  right: 10px; /* Khoảng cách từ bên phải */
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: #fff; /* Màu sắc của mũi tên điều hướng */
+}
+::-webkit-details-marker {
+  display: none;
+}

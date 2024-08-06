@@ -7,11 +7,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   return (
     <div className="App">
-      <body>
-        <Main />
-      </body>
 
-      {/* <Footer />  */}
+      <Main />
+
+
+
     </div>
   );
 }

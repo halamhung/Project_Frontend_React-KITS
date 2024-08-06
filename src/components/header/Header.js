@@ -1,47 +1,19 @@
-import React, { useState } from 'react';
-import {
-  AppBar,
-  Toolbar,
-  Grid,
-  Typography,
-  Autocomplete,
-  TextField,
-  IconButton,
-  Box,
-  Badge,
-  Tabs,
-  Tab,
-  useMediaQuery,
-  useTheme,
-  Drawer,
-  List,
-  ListItem,
-  ThemeProvider,
-  useThemeProps,
-  Container
-} from '@mui/material';
-import {
-  Search as SearchIcon,
-  Phone as PhoneIcon,
-  Person as PersonIcon,
-  Star as StarIcon,
-  ShoppingCart as ShoppingCartIcon
-} from '@mui/icons-material';
+import React, { useState, useEffect } from 'react';
+import { AppBar, Toolbar, Grid, Typography, Autocomplete, TextField, IconButton, Box, Badge, Tabs, Tab, useMediaQuery, ListItem, ThemeProvider, Drawer } from '@mui/material';
+import { Search as SearchIcon, Phone as PhoneIcon, Person as PersonIcon, Star as StarIcon, ShoppingCart as ShoppingCartIcon } from '@mui/icons-material';
 import MenuIcon from '@mui/icons-material/Menu';
-import Logo from '../../assets/img/logo_shop.png'
+import Logo from '../../assets/img/logo_shop.png';
 import theme from '../theme';
-
-
-
+import { List } from 'reactstrap';
 
 const Header = () => {
-
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [isSticky, setIsSticky] = useState(true);
 
   const handleDrawerOpen = () => setDrawerOpen(true);
   const handleDrawerClose = () => setDrawerOpen(false);
+
   const categories = [
     { label: "Tất cả", value: "all" },
     { label: "Điện thoại", value: "dienthoai" },
@@ -49,9 +21,22 @@ const Header = () => {
     // Thêm các danh mục khác ở đây
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsSticky(false);
+      } else {
+        setIsSticky(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const drawerContent = (
     <Box sx={{ width: 300 }} role="presentation" onClick={handleDrawerClose} onKeyDown={handleDrawerClose}>
-      <img src={Logo}></img>
+      <img src={Logo} alt="Logo" />
       <List>
         <ListItem button>
           <Typography variant="h6">Trang chủ</Typography>
@@ -77,9 +62,13 @@ const Header = () => {
 
   return (
     <ThemeProvider theme={theme}>
+
       <Box sx={{ width: '100%', boxShadow: "rgba(0, 0, 0, 1)", }}>
-        <AppBar position="fixed" sx={{ width: "100%" }}>
-          <Toolbar  >
+        <AppBar position={isSticky ? 'sticky' : 'fixed'} sx={{
+          width: "100%",
+          transition: 'all 0.3s ease-in-out',
+        }}>
+          <Toolbar>
             {isMobile ? (
               <>
                 <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleDrawerOpen}>
@@ -91,7 +80,7 @@ const Header = () => {
               </>
             ) : (
               <Grid container mt={3} justifyContent="center" alignItems="center" px={2}>
-                <Grid item md={3} xs={3} container justifyContent="center"  >
+                <Grid item md={3} xs={3} container justifyContent="center">
                   <Typography variant="h6" component="div">
                     <Box
                       component="img"
@@ -174,7 +163,7 @@ const Header = () => {
                           <PhoneIcon />
                         </IconButton>
                       </Grid>
-                      <Grid item  >
+                      <Grid item>
                         <Typography variant="h6" component="h6" className="hotline_content_title">
                           <span>Hotline:</span> 19008188
                         </Typography>
@@ -184,7 +173,7 @@ const Header = () => {
                       </Grid>
                     </Grid>
                   </Box>
-                  <Box className="icon_content" >
+                  <Box className="icon_content">
                     <IconButton aria-label="user">
                       <PersonIcon />
                     </IconButton>
@@ -206,13 +195,13 @@ const Header = () => {
 
           <Toolbar sx={{ display: "flex", justifyContent: "center", width: "100%" }}>
             {!isMobile && (
-              <Box >
+              <Box>
                 <Tabs
                   centered
                   sx={{
                     "& .MuiTabs-indicator": {
                       backgroundColor: "primary.main",
-                      height: 3,
+                      height: 6,
                     },
                   }}
                 >
@@ -226,12 +215,10 @@ const Header = () => {
               </Box>
             )}
           </Toolbar>
-
-
-
         </AppBar>
       </Box>
-    </ThemeProvider >
+    </ThemeProvider>
+
   );
 };
 
