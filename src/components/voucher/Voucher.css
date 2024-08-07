@@ -1,43 +1,96 @@
-.voucher-card {
-  height: 90px;
-  width: 280px;
-  border: 1px dashed grey;
-  border-radius: 16px;
+.card {
+  width: 400px;
+  height: 230px !important;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  padding: 10px;
   position: relative;
-  overflow: visible;
-
-  text-align: center;
 }
 
-.voucher-content {
+.main {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 10px;
   align-items: center;
 }
 
-.voucher-header,
-.voucher-body,
-.voucher-footer {
-  margin-bottom: 16px;
+.coImg {
+  margin-right: 20px;
 }
 
-.voucher-header {
-  font-size: 1.2em;
+.vertical {
+  border-left: 5px dotted black;
+  height: 100px;
 }
 
-.voucher-body {
-  font-size: 1.5em;
+.content {
+  margin-left: -20px;
 }
 
-.voucher-footer {
-  font-size: 1.2em;
+.content h1 {
+  font-size: 35px;
+  color: #565656;
 }
 
-.use-button {
+.content h1 span {
+  font-size: 18px;
+}
+
+.content h2 {
+  font-size: 18px;
+  color: #565656;
+  text-transform: uppercase;
+}
+
+.content p {
+  font-size: 16px;
+  color: #696969;
+}
+
+.copyButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  padding: 0 5px;
+  height: 45px;
+  border-radius: 4px;
+  border: 1px solid #e1e1e1;
+}
+
+.copybtn {
+  padding: 5px 20px;
+  background-color: #dc143c;
+  color: #fff;
+  border: 1px solid transparent;
+}
+
+.cardDecorations {
   position: absolute;
-  bottom: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 20px;
-  padding: 10px 20px;
+  content: "";
+  height: 40px;
+  border-radius: 40px;
+  background-color: #dc143c;
+  width: 40px;
+}
+
+.cardBefore {
+  left: -20px;
+  top: 70px;
+}
+
+.cardAfter {
+  right: -20px;
+  top: 70px;
+}
+#copyvalue {
+  border: none !important;
+}
+
+.slick-dots {
+  bottom: -10px !important;
+}
+.slick-slide img {
+  width: 100px;
 }
