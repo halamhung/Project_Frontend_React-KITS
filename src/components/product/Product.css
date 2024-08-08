@@ -14,7 +14,7 @@ ul {
   box-sizing: border-box; /* Đảm bảo padding không làm thay đổi kích thước */
 }
 
-.slick-slide img {
+.slick-slide .img-product {
   display: block;
   width: 100%;
   height: auto; /* Đảm bảo tỷ lệ khung hình đúng */
@@ -93,4 +93,7 @@ ul {
 }
 ::-webkit-details-marker {
   display: none;
+}
+.slider {
+  margin-bottom: 30px;
 }

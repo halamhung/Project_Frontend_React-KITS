@@ -1,4 +1,59 @@
-footer {
-  margin-top: 40px;
-  background-color: black;
+.footer {
+  margin-top: 30px;
+  position: static;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #f8f9fa;
+  text-align: center;
+  padding: 1rem 0;
+  box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+}
+.footer-block {
+  padding: 10px;
+}
+.footer-block h4 {
+  font-size: 17px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: left;
+  margin-bottom: 20px;
+}
+.footer-block .list-infomation {
+  padding-left: 0;
+  text-align: left;
+}
+.footer-block .list-infomation li {
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+}
+.footer-block .list-infomation li i {
+  flex: 0 0 20px;
+}
+.infomation-drop {
+  display: flex;
+  cursor: pointer;
+  justify-content: space-between;
+  top: 10px;
+}
+
+.policy-text {
+  margin-right: 10px; /* Adjust spacing as needed */
+}
+
+.dropdown-content {
+  padding-left: 15px;
+}
+.highlight {
+  font-weight: 700;
+}
+.list-service {
+  padding-left: 0;
+  text-align: left;
+  list-style: initial;
+  padding-left: 20px;
+}
+.list-service li {
+  padding: 5px 0;
 }

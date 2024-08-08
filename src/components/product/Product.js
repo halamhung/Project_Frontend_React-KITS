@@ -27,11 +27,12 @@ export default function Product() {
     <Box className='mt-3'>
       {isSmallScreen ? (
         <div className="slick-container">
-          <Slider {...carouselSettings}>
+          <Slider className="slider" {...carouselSettings}>
             {items.map((item, index) => (
               <div key={index}>
                 <Card>
                   <CardMedia
+                    className="img-product"
                     component="img"
                     alt={item.alt}
                     image={item.image}

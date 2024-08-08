@@ -70,8 +70,7 @@ export default function Voucher() {
                                     className='img-voucher'
                                     src="https://i.pinimg.com/originals/c7/84/67/c78467db9ff497393cb548a48f02d451.png"
                                     alt="Voucher"
-                                    width="70"
-                                    height="50"
+
                                 />
                             </Box>
                             <Divider orientation="vertical" flexItem style={{ margin: '0 10px' }} />
