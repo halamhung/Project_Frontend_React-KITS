@@ -67,6 +67,7 @@ export default function Voucher() {
                         <Box style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
                             <Box style={{ marginBottom: '10px' }}>
                                 <img
+                                    className='img-voucher'
                                     src="https://i.pinimg.com/originals/c7/84/67/c78467db9ff497393cb548a48f02d451.png"
                                     alt="Voucher"
                                     width="70"
