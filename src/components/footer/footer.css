@@ -57,3 +57,23 @@
 .list-service li {
   padding: 5px 0;
 }
+.footer-store{
+  display: flex;
+  flex-direction: column;
+}
+.list-store {
+  padding-left: 0;
+  text-align: left;
+  
+ 
+}
+.list-store li {
+  padding: 5px 0;
+}
+.store-location{
+  display: flex;
+  align-items: center;
+}
+.store-location i{
+  margin-right: 10px;
+}

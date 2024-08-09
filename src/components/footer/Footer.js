@@ -70,11 +70,31 @@ export default function Footer() {
           <Col lg={3}>
             <div className="footer-block">
               <h4>Danh sách cửa hàng</h4>
-              <List className="list-infomation">
-                <li>About Us</li>
-                <li>Press</li>
-                <li>Careers</li>
-                <li>Blog</li>
+              <List className="list-store">
+                <li>
+                  <div className="store-location">
+                    <i className="fa fa-map-marker" aria-hidden="true"></i>
+                    <div className="store-name">297/3 Tô Hiến Thành, Phường 13, Quận 10, TP Hồ Chí Minh</div>
+                  </div>
+                </li>
+                <li>
+                  <div className="store-location">
+                    <i className="fa fa-map-marker" aria-hidden="true"></i>
+                    <div className="store-name">Số 26 phố Lê Đại Hành, Phường Lê Đại Hành, Quận Hai Bà Trưng, TP Hà Nội</div>
+                  </div>
+                </li>
+                <li>
+                  <div className="store-location">
+                    <i className="fa fa-map-marker" aria-hidden="true"></i>
+                    <div className="store-name">Số 35 Trần Phú, Phường Cái Khế, Quận Ninh Kiều, TP Cần Thơ, Cần Thơ</div>
+                  </div>
+                </li>
+                <li>
+                  <div className="store-location">
+                    <i className="fa fa-map-marker" aria-hidden="true"></i>
+                    <div className="store-name">135 Hai Bà Trưng, Bến Nghé, Quận 1</div>
+                  </div>
+                </li>
               </List>
             </div>
           </Col>
