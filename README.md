@@ -7,7 +7,7 @@ Các công việc đã thực hiện :
 sử dụng redux để quản lý các state
 =>@reduxjs/redux
 => npm install redux-toolkit
-+4 : thêm react-router-dome
++4 : thêm react-router-dom
 => để chuyển qua lại giữa giữa các trang
 +5 : thêm Material
 => npm install @mui/icons-material @mui/material @mui/styled-engine-sc (cung cấp icon , sử dụng material , )

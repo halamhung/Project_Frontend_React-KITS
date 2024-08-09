@@ -10,13 +10,14 @@ import {
 import Header from '../header/Header';
 import './main.css'; // Import the CSS file
 import Footer from '../footer/Footer';
-import Product from '../product/Product';
+import Product from '../product_category/Product_category';
 import { Margin, Padding } from '@mui/icons-material';
 import banner1 from '../../assets/img/banner/banner_1.jpg';
 import banner2 from '../../assets/img/banner/banner_2.jpg';
 import banner3 from '../../assets/img/banner/banner_3.jpg';
 import { Grid, Typography } from '@mui/material';
 import Voucher from '../voucher/Voucher';
+import Product_category from '../product_category/Product_category';
 const items = [
   {
     src: banner1,
@@ -99,7 +100,7 @@ function Main(args) {
             onClickHandler={next}
           />
         </Carousel>
-        <Product />
+        <Product_category />
         <h2 className='uudai'><span>ƯU ĐÃI CHO BẠN</span></h2>
         <Voucher />
       </Container>

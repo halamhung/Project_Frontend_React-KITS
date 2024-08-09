@@ -1,0 +1,11 @@
+.banner-product {
+  width: 100%;
+  height: auto;
+}
+.title-topbar {
+  align-items: flex-start;
+}
+.title-topbar-h1 {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+}

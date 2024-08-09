@@ -5,6 +5,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Logo from '../../assets/img/logo_shop.png';
 import theme from '../theme';
 import { List } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
@@ -39,13 +40,13 @@ const Header = () => {
       <img src={Logo} alt="Logo" />
       <List>
         <ListItem button>
-          <Typography variant="h6">Trang chủ</Typography>
+          <Typography variant="h6"><Link to="/">Trang chủ</Link></Typography>
         </ListItem>
         <ListItem button>
           <Typography variant="h6">Siêu sale</Typography>
         </ListItem>
         <ListItem button>
-          <Typography variant="h6">Sản phẩm</Typography>
+          <Typography variant="h6"> <Link to="/product">Sản phẩm</Link> </Typography>
         </ListItem>
         <ListItem button>
           <Typography variant="h6">Áo nam</Typography>
@@ -205,12 +206,12 @@ const Header = () => {
                     },
                   }}
                 >
-                  <Tab label="Trang chủ" value="trang-chu" />
-                  <Tab label="Siêu sale" value="sieu-sale" />
-                  <Tab label="Sản phẩm" value="san-pham" />
-                  <Tab label="Áo nam" value="ao-nam" />
-                  <Tab label="Áo nữ" value="ao-nu" />
-                  <Tab label="TeeSpace" value="teespace" />
+                  <Tab label="Trang chủ" component={Link} to="/" />
+                  <Tab label="Siêu sale" component={Link} to="/sieu-sale" />
+                  <Tab label="Sản phẩm" component={Link} to="/product" />
+                  <Tab label="Áo nam" component={Link} to="/ao-nam" />
+                  <Tab label="Áo nữ" component={Link} to="/ao-nu" />
+                  <Tab label="TeeSpace" component={Link} to="/teespace" />
                 </Tabs>
               </Box>
             )}

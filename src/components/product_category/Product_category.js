@@ -3,9 +3,9 @@ import { Box, Card, CardMedia, Grid } from '@mui/material';
 import { Container } from "reactstrap";
 import Slider from "react-slick";
 import { useMediaQuery } from "react-responsive";
-import './Product.css'; // Import the CSS file
+import './Product_category.css'; // Import the CSS file
 
-export default function Product() {
+export default function Product_category() {
   const isSmallScreen = useMediaQuery({ maxWidth: 600 });
 
   const items = [

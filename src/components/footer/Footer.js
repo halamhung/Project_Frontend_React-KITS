@@ -13,7 +13,7 @@ export default function Footer() {
     <footer className="footer">
       <Container >
         <Row>
-          <Col lg={3}>
+          <Col xs={12} sm={6} md={3}>
             <div className="footer-block">
               <h4>Giới thiệu</h4>
               <List className="list-infomation">
@@ -39,7 +39,7 @@ export default function Footer() {
               </List>
             </div>
           </Col>
-          <Col lg={3}>
+          <Col xs={12} sm={6} md={3}>
             <div className="footer-block">
               <h4>Chính sách</h4>
               <List className="list-service">
@@ -67,7 +67,7 @@ export default function Footer() {
               </List>
             </div>
           </Col>
-          <Col lg={3}>
+          <Col xs={12} sm={6} md={3}>
             <div className="footer-block">
               <h4>Danh sách cửa hàng</h4>
               <List className="list-store">
@@ -98,7 +98,7 @@ export default function Footer() {
               </List>
             </div>
           </Col>
-          <Col lg={3}>
+          <Col xs={12} sm={6} md={3}>
             <div className="footer-block">
               <h4>Kết nối với Teespace</h4>
               <List className="list-infomation">
