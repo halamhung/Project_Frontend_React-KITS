@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Project_Frontend_React-KITS/static/css/main.985c463f.css",
-    "main.js": "/Project_Frontend_React-KITS/static/js/main.a3abb913.js",
+    "main.js": "/Project_Frontend_React-KITS/static/js/main.d9c596e7.js",
     "static/media/banner_product.png": "/Project_Frontend_React-KITS/static/media/banner_product.f3ef7a6ee07068bc825f.png",
     "static/media/banner_1.jpg": "/Project_Frontend_React-KITS/static/media/banner_1.5281a3a020e7364a5370.jpg",
     "static/media/banner_2.jpg": "/Project_Frontend_React-KITS/static/media/banner_2.c836247f54d55ac2279a.jpg",
@@ -32,10 +32,10 @@
     "static/media/slick.woff": "/Project_Frontend_React-KITS/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/Project_Frontend_React-KITS/index.html",
     "main.985c463f.css.map": "/Project_Frontend_React-KITS/static/css/main.985c463f.css.map",
-    "main.a3abb913.js.map": "/Project_Frontend_React-KITS/static/js/main.a3abb913.js.map"
+    "main.d9c596e7.js.map": "/Project_Frontend_React-KITS/static/js/main.d9c596e7.js.map"
   },
   "entrypoints": [
     "static/css/main.985c463f.css",
-    "static/js/main.a3abb913.js"
+    "static/js/main.d9c596e7.js"
   ]
 }
