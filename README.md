@@ -11,15 +11,22 @@ sử dụng redux để quản lý các state
 => để chuyển qua lại giữa giữa các trang
 +5 : thêm Material
 => npm install @mui/icons-material @mui/material @mui/styled-engine-sc (cung cấp icon , sử dụng material , )
++6: sử dụng navigation để định dạng tuyến
++7 sử dụng AOS : Để làm animation
+=>npm install aos --save ,
+
+<!-- <script>
+  AOS.init();
+</script> --> thêm vào html
 
 \*Các chú thích
 
 1: Autocomplete cung cấp tính năng tự động nhận diện những gì người dùng nhập vào
 
-Hàm định giá tiền việt 
-  // Định dạng giá theo tiền Việt Nam Đồng
-       const formattedPrice = item.price.toLocaleString('vi-VN', {
-        style: 'currency',
-        currency: 'VND',
-        minimumFractionDigits: 0
-    });
+Hàm định giá tiền việt
+// Định dạng giá theo tiền Việt Nam Đồng
+const formattedPrice = item.price.toLocaleString('vi-VN', {
+style: 'currency',
+currency: 'VND',
+minimumFractionDigits: 0
+});

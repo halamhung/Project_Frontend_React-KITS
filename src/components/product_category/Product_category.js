@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box, Card, CardMedia, Grid } from '@mui/material';
 import { Container } from "reactstrap";
 import Slider from "react-slick";
 import { useMediaQuery } from "react-responsive";
 import './Product_category.css'; // Import the CSS file
+import AOS from "aos";
+import 'aos/dist/aos.css'; // import AOS styles
 
 export default function Product_category() {
   const isSmallScreen = useMediaQuery({ maxWidth: 600 });
@@ -14,7 +16,9 @@ export default function Product_category() {
     { alt: "quanao", image: "//file.hstatic.net/1000253775/file/dao_pho_large.jpg", title: "quanao" },
     { alt: "quanao", image: "//file.hstatic.net/1000253775/file/dao_pho_large.jpg", title: "quanao" }
   ];
-
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
   const carouselSettings = {
     dots: true,
     infinite: true,
@@ -29,8 +33,8 @@ export default function Product_category() {
         <div className="slick-container">
           <Slider className="slider" {...carouselSettings}>
             {items.map((item, index) => (
-              <div key={index}>
-                <Card>
+              <div key={index} data-aos="fade-up" data-aos-delay={index * 100}>
+                <Card >
                   <CardMedia
                     className="img-product"
                     component="img"

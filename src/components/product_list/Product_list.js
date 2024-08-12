@@ -85,10 +85,10 @@ export default function Product_list() {
                     </Box>
                 </Grid>
                 {
-                      productList ? productList.map((item, index) => (<Product_item item={item} index={index} />))
-                      : navigate("*")
+                    productList ? productList.map((item, index) => (<Product_item item={item} index={index} />))
+                        : navigate("*")
                 }
-         
+
             </Grid>
         </Container>
     );

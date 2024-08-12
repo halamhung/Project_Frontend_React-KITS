@@ -28,6 +28,6 @@ const ProductSlice = createSlice({
                 state.status = 'Lỗi';
                 state.error = action.error.message;
             });
-    },  
+    },
 });
 export default ProductSlice.reducer;

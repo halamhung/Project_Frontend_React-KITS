@@ -18,6 +18,11 @@ import banner3 from '../../assets/img/banner/banner_3.jpg';
 import { Grid, Typography } from '@mui/material';
 import Voucher from '../voucher/Voucher';
 import Product_category from '../product_category/Product_category';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // import AOS styles
+import Product_list from '../product_list/Product_list';
+import Product_item from '../product_list/Product_item';
+import ProductListWrapper from '../ProductListWrapper';
 const items = [
   {
     src: banner1,
@@ -35,7 +40,7 @@ const items = [
     key: 3,
   },
 ];
-
+AOS.init({ duration: 1000 });
 function Main(args) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
@@ -82,6 +87,9 @@ function Main(args) {
           next={next}
           previous={previous}
           {...args}
+          data-aos="fade-down"
+          data-aos-easing="linear"
+          data-aos-duration="1500"
         >
           <CarouselIndicators
             items={items}
@@ -101,8 +109,16 @@ function Main(args) {
           />
         </Carousel>
         <Product_category />
-        <h2 className='uudai'><span>ƯU ĐÃI CHO BẠN</span></h2>
+        <h2 className='uudai' data-aos="fade-right"
+          data-aos-offset="300"
+          data-aos-easing="ease-in-sine" a
+        ><span>ƯU ĐÃI CHO BẠN</span></h2>
         <Voucher />
+        <h2 className='hangmoi' data-aos="fade-right"
+          data-aos-offset="300"
+          data-aos-easing="ease-in-sine"
+        ><span>Hàng mới</span></h2>
+        <ProductListWrapper />
       </Container>
 
 

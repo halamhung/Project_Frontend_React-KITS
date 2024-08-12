@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Box, Button, Card, CardContent, CardMedia, Dialog, DialogActions, DialogContent, DialogTitle, Grid, TextField, Typography } from '@mui/material';
-import   
- SearchIcon from '@mui/icons-material/Search';
+import
+SearchIcon from '@mui/icons-material/Search';
 import Swal from 'sweetalert2';
 import Img from '../Images';
 import { addCart } from '../../redux/CartSlice';
+import { useNavigate } from 'react-router-dom';
 
 export default function Product_item(props) {
     const { index, item } = props;
@@ -13,7 +14,7 @@ export default function Product_item(props) {
     const [open, setOpen] = useState(false);
     const [quantity, setQuantity] = useState(1);
     const [size, setSize] = useState('M');
-
+    const navigate = useNavigate();
     // Định dạng giá theo tiền Việt Nam Đồng
     const formattedPrice = item.price.toLocaleString('vi-VN', {
         style: 'currency',
@@ -37,25 +38,28 @@ export default function Product_item(props) {
             showConfirmButton: false,
             timer: 1000
         });
-        dispatch(addCart({ item, quantity })); 
+        dispatch(addCart({ item, quantity }));
         handleCloseDialog();
     };
-
+    const handleNavigateToDetail = () => {
+        navigate(`/product/${item.id}`); // Navigate to the product detail page
+    };
     return (
         <>
             <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
                 <Box sx={{ mb: 3, p: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <Card 
-                        sx={{ 
-                            width: '100%', 
-                            position: 'relative', 
+                    <Card
+                        sx={{
+                            width: '100%',
+                            position: 'relative',
                             overflow: 'hidden',
                             '&:hover .img-hover': { opacity: 1 },
-                            '&:hover .magnifier-icon': { 
+                            '&:hover .magnifier-icon': {
                                 opacity: 1,
                                 transform: 'translate(-50%, -50%) scale(1)'
                             }
                         }}
+
                     >
                         <CardMedia
                             component="img"
@@ -63,6 +67,7 @@ export default function Product_item(props) {
                             image={item.img ? Img.all[item.img] : 'default.jpg'}
                             alt={item.product_name}
                             sx={{ objectFit: 'cover' }}
+                            onClick={handleNavigateToDetail}
                         />
                         <CardMedia
                             component="img"
@@ -70,17 +75,18 @@ export default function Product_item(props) {
                             image={item.img_after ? Img.all[item.img_after] : 'error'}
                             alt={item.product_name}
                             className="img-hover"
-                            sx={{ 
-                                objectFit: 'cover', 
-                                position: 'absolute', 
-                                top: 0, 
-                                left: 0, 
-                                opacity: 0, 
+                            sx={{
+                                objectFit: 'cover',
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                opacity: 0,
                                 transition: 'opacity 0.3s ease-in-out',
                                 zIndex: 1
                             }}
+                            onClick={handleNavigateToDetail}
                         />
-                        <Box 
+                        <Box
                             className="magnifier-icon"
                             sx={{
                                 position: 'absolute',
@@ -89,22 +95,23 @@ export default function Product_item(props) {
                                 transform: 'translate(-50%, -50%) scale(0)',
                                 opacity: 0,
                                 transition: 'all 0.3s ease-in-out',
-                                zIndex: 2
+                                zIndex: 2,
+                                cursor: "pointer"
                             }}
                             onClick={handleOpenDialog}
                         >
                             <SearchIcon sx={{ fontSize: 48, color: 'white' }} />
                         </Box>
                         <CardContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', p: 2 }}>
-                            <Typography 
-                                variant="body1" 
-                                component="h3" 
+                            <Typography
+                                variant="body1"
+                                component="h3"
                                 align="center"
-                                sx={{ 
-                                    minHeight: '5em', 
-                                    display: 'flex', 
-                                    alignItems: 'center', 
-                                    justifyContent: 'center', 
+                                sx={{
+                                    minHeight: '5em',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
                                     textAlign: 'center'
                                 }}
                             >
@@ -113,12 +120,13 @@ export default function Product_item(props) {
                             <Typography variant="h6" fontWeight={600} color="black" align="center">
                                 {formattedPrice}
                             </Typography>
-                            <Button 
-                                variant="contained" 
-                                color="primary" 
-                                sx={{ mt: 2,
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                sx={{
+                                    mt: 2,
                                     width: "100%"
-                                 }} 
+                                }}
                                 onClick={handleOpenDialog}
                             >
                                 Thêm vào giỏ

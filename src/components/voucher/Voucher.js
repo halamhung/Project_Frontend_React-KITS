@@ -6,6 +6,8 @@ import "./Voucher.css"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // import AOS styles
 
 export default function Voucher() {
     const dispatch = useDispatch();
@@ -29,6 +31,7 @@ export default function Voucher() {
 
     useEffect(() => {
         dispatch(fetch());
+        AOS.init({ duration: 1000 });
     }, [dispatch]);
 
     const isMdUp = useMediaQuery('(min-width:960px)');
@@ -46,24 +49,32 @@ export default function Voucher() {
         autoplay: true,
         autoplaySpeed: 5000,
     };
-
+    const cardStyles = {
+        width: '100%',
+        maxWidth: '90%',
+        margin: '10px 10px',
+        padding: '10px',
+        cursor: 'pointer',
+        transition: 'transform 0.3s, box-shadow 0.3s',
+        borderRadius: '7px',
+        backgroundColor: '#fff',
+        boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.6)',
+        '&:hover': {
+            transform: 'scale(1.05)',
+            boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.2), 3px 3px 20px rgba(0, 0, 0, 0.1)', // Hiệu ứng 3D shadow
+        },
+        '&:active': {
+            boxShadow: '0px 12px 24px rgba(0, 0, 0, 0.3)',
+        },
+    };
     return (
         <Slider {...carouselSettings}>
             {vouchers.slice(2).map((item, index) => (
-                <Box key={index} sx={{ padding: "2px", display: 'flex', justifyContent: 'center' }}>
-                    <Card style={{
-                        width: '100%',
-                        maxWidth: '90%',
-                        margin: '0 10px',
-                        padding: '10px',
-                        cursor: 'pointer',
-                        transition: 'transform 0.3s',
-                        borderRadius: '7px',
-                        backgroundColor: '#fff',
-                        boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.6)',
-                        '&:hover': { transform: 'scale(1.05)', boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.2)' },
-                        '&:active': { boxShadow: '0px 12px 24px rgba(0, 0, 0, 0.3)' },
-                    }}>
+                <Box key={index} sx={{ padding: "2px", display: 'flex', justifyContent: 'center' }}
+                    data-aos="fade-up"
+                    data-aos-delay={index * 100}
+                    onClick={() => copyIt(index + 2)}>
+                    <Card sx={cardStyles}>
                         <Box style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
                             <Box style={{ marginBottom: '10px' }}>
                                 <img
@@ -82,7 +93,7 @@ export default function Voucher() {
                                     align="center"
                                     sx={{
                                         minHeight: '5em', // Đảm bảo chiều cao cố định, 3em = chiều cao của hai dòng văn bản
-                                        
+
                                     }}
                                 >{item.name}</Typography>
                                 <Typography variant="h5">
