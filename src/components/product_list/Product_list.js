@@ -1,23 +1,53 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Breadcrumb from '../../components/Breadcrumb';
 import { Grid, Box, Container, Typography, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 import "./Product_list.css";
 import Logo from "../../assets/img/banner/banner_product.png";
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '../../redux/ProductSlice';
-import IMG from "../../assets/img/List/nam/ao-thun/aothun-1.jpg"
 import Product_item from './Product_item';
 import { useNavigate } from 'react-router-dom';
+
 export default function Product_list() {
     const dispatch = useDispatch();
     const productList = useSelector((state) => state.products.products);
     const productStatus = useSelector((state) => state.products.status);
     const navigate = useNavigate();
+
+    const [sortOption, setSortOption] = useState('');
+    const [sortedProducts, setSortedProducts] = useState([]);
+
     useEffect(() => {
         if (productStatus === 'start') {
             dispatch(fetchProducts());
         }
     }, [dispatch, productStatus]);
+
+    useEffect(() => {
+        if (productList) {
+            let sorted = [...productList];
+            switch (sortOption) {
+                case 'price-asc':
+                    sorted.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price-desc':
+                    sorted.sort((a, b) => b.price - a.price);
+                    break;
+                case 'name-asc':
+                    sorted.sort((a, b) => a.name.localeCompare(b.name));
+                    break;
+                case 'name-desc':
+                    sorted.sort((a, b) => b.name.localeCompare(a.name));
+                    break;
+                case 'best-seller':
+                    sorted.sort((a, b) => b.sales - a.sales);
+                    break;
+                default:
+                    break;
+            }
+            setSortedProducts(sorted);
+        }
+    }, [sortOption, productList]);
 
     if (productStatus === 'loading') {
         return <Typography>Loading...</Typography>;
@@ -69,6 +99,8 @@ export default function Product_list() {
                             <Select
                                 labelId="sort-label"
                                 label="Sắp xếp theo"
+                                value={sortOption}
+                                onChange={(e) => setSortOption(e.target.value)}
                             >
                                 <MenuItem value="">
                                     <em>Mặc định</em>
@@ -85,10 +117,12 @@ export default function Product_list() {
                     </Box>
                 </Grid>
                 {
-                    productList ? productList.map((item, index) => (<Product_item item={item} index={index} />))
-                        : navigate("*")
+                    sortedProducts.length > 0 ? sortedProducts.map((item, index) => (
+                        <Product_item key={index} item={item} index={index} />
+                    )) : (
+                        <Typography>Không có sản phẩm nào.</Typography>
+                    )
                 }
-
             </Grid>
         </Container>
     );
