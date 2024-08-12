@@ -1,20 +1,41 @@
 {
   "files": {
-    "main.css": "/Project_Frontend_React-KITS/static/css/main.b1d96312.css",
-    "main.js": "/Project_Frontend_React-KITS/static/js/main.b3a99144.js",
+    "main.css": "/Project_Frontend_React-KITS/static/css/main.eac5ed3a.css",
+    "main.js": "/Project_Frontend_React-KITS/static/js/main.100c7ca5.js",
+    "static/media/banner_product.png": "/Project_Frontend_React-KITS/static/media/banner_product.f3ef7a6ee07068bc825f.png",
     "static/media/banner_1.jpg": "/Project_Frontend_React-KITS/static/media/banner_1.5281a3a020e7364a5370.jpg",
     "static/media/banner_2.jpg": "/Project_Frontend_React-KITS/static/media/banner_2.c836247f54d55ac2279a.jpg",
     "static/media/banner_3.jpg": "/Project_Frontend_React-KITS/static/media/banner_3.e719f34e1b9ace138861.jpg",
+    "static/media/jean-1-2.jpg": "/Project_Frontend_React-KITS/static/media/jean-1-2.ca4b9b6d7cecc352a8a3.jpg",
+    "static/media/so-mi-1.jpg": "/Project_Frontend_React-KITS/static/media/so-mi-1.daebd3a5e25eeaafad65.jpg",
+    "static/media/so-mi-1-2.jpg": "/Project_Frontend_React-KITS/static/media/so-mi-1-2.be49a1c0da1e7b525de7.jpg",
+    "static/media/jean-1.jpg": "/Project_Frontend_React-KITS/static/media/jean-1.b3d641c18aef2f97795e.jpg",
+    "static/media/ao-polo-1.jpg": "/Project_Frontend_React-KITS/static/media/ao-polo-1.be747f8f39c5de3d8645.jpg",
+    "static/media/jean-2.jpg": "/Project_Frontend_React-KITS/static/media/jean-2.725d37b466acbcf69db5.jpg",
+    "static/media/aothun-1-2.jpg": "/Project_Frontend_React-KITS/static/media/aothun-1-2.126d8dcb7959eae32bb8.jpg",
+    "static/media/aothun-2.jpg": "/Project_Frontend_React-KITS/static/media/aothun-2.24251c11900aba792b12.jpg",
+    "static/media/short-2.jpg": "/Project_Frontend_React-KITS/static/media/short-2.b356d6d37bf922599ab0.jpg",
+    "static/media/short-1.jpg": "/Project_Frontend_React-KITS/static/media/short-1.a23eec474eda5e513a83.jpg",
+    "static/media/so-mi-2-2.jpg": "/Project_Frontend_React-KITS/static/media/so-mi-2-2.aba7f7ccf7a4a07bfa3d.jpg",
+    "static/media/aothun-1.jpg": "/Project_Frontend_React-KITS/static/media/aothun-1.376d118494da0e920b04.jpg",
+    "static/media/short-1-2.jpg": "/Project_Frontend_React-KITS/static/media/short-1-2.d09c5082bb07492cc1da.jpg",
+    "static/media/ao-polo-2.jpg": "/Project_Frontend_React-KITS/static/media/ao-polo-2.eedf29e3db69f977edc0.jpg",
+    "static/media/so-mi-2.jpg": "/Project_Frontend_React-KITS/static/media/so-mi-2.d806ffc071e157b5afa8.jpg",
+    "static/media/aothun-2-2.jpg": "/Project_Frontend_React-KITS/static/media/aothun-2-2.4092efdb23ba3aa03d97.jpg",
+    "static/media/short-2-2.jpg": "/Project_Frontend_React-KITS/static/media/short-2-2.3d296312827790cd26a5.jpg",
+    "static/media/ao-polo-1-2.jpg": "/Project_Frontend_React-KITS/static/media/ao-polo-1-2.d995137f458d38f09316.jpg",
+    "static/media/ao-polo-2-2.jpg": "/Project_Frontend_React-KITS/static/media/ao-polo-2-2.0a1b5265797af78ea4b5.jpg",
+    "static/media/jean-2-2.jpg": "/Project_Frontend_React-KITS/static/media/jean-2-2.80dbd73af3af8a416f08.jpg",
     "static/media/slick.svg": "/Project_Frontend_React-KITS/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "/Project_Frontend_React-KITS/static/media/slick.a4e97f5a2a64f0ab1323.eot",
     "static/media/slick.ttf": "/Project_Frontend_React-KITS/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/Project_Frontend_React-KITS/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/Project_Frontend_React-KITS/index.html",
-    "main.b1d96312.css.map": "/Project_Frontend_React-KITS/static/css/main.b1d96312.css.map",
-    "main.b3a99144.js.map": "/Project_Frontend_React-KITS/static/js/main.b3a99144.js.map"
+    "main.eac5ed3a.css.map": "/Project_Frontend_React-KITS/static/css/main.eac5ed3a.css.map",
+    "main.100c7ca5.js.map": "/Project_Frontend_React-KITS/static/js/main.100c7ca5.js.map"
   },
   "entrypoints": [
-    "static/css/main.b1d96312.css",
-    "static/js/main.b3a99144.js"
+    "static/css/main.eac5ed3a.css",
+    "static/js/main.100c7ca5.js"
   ]
 }
