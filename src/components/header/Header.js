@@ -73,12 +73,20 @@ const Header = () => {
           <Toolbar>
             {isMobile ? (
               <>
-                <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleDrawerOpen}>
-                  <MenuIcon />
-                </IconButton>
-                <Drawer anchor="left" open={drawerOpen} onClose={handleDrawerClose}>
-                  {drawerContent}
-                </Drawer>
+                <Box sx={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
+                  <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleDrawerOpen}>
+                    <MenuIcon />
+                  </IconButton>
+                  <IconButton aria-label="shopping cart" component={Link} to="/cart"> {/* Thêm Link đến trang giỏ hàng */}
+                    <Badge badgeContent={carts.length} color="secondary"> {/* Hiển thị số lượng sản phẩm trong giỏ hàng */}
+                      <ShoppingCartIcon />
+                    </Badge>
+                  </IconButton>
+                  <Drawer anchor="left" open={drawerOpen} onClose={handleDrawerClose}>
+                    {drawerContent}
+                  </Drawer>
+                </Box>
+
               </>
             ) : (
               <Grid container mt={3} justifyContent="center" alignItems="center" px={2}>
@@ -207,6 +215,7 @@ const Header = () => {
                     },
                   }}
                 >
+
                   <Tab label="Trang chủ" component={Link} to="/" />
                   <Tab label="Siêu sale" component={Link} to="/sieu-sale" />
                   <Tab label="Sản phẩm" component={Link} to="/product" />
