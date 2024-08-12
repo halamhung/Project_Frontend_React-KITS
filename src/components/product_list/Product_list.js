@@ -5,12 +5,14 @@ import "./Product_list.css";
 import Logo from "../../assets/img/banner/banner_product.png";
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '../../redux/ProductSlice';
-
+import IMG from "../../assets/img/List/nam/ao-thun/aothun-1.jpg"
+import Product_item from './Product_item';
+import { useNavigate } from 'react-router-dom';
 export default function Product_list() {
     const dispatch = useDispatch();
     const productList = useSelector((state) => state.products.products);
     const productStatus = useSelector((state) => state.products.status);
-
+    const navigate = useNavigate();
     useEffect(() => {
         if (productStatus === 'start') {
             dispatch(fetchProducts());
@@ -56,7 +58,7 @@ export default function Product_list() {
                             alignSelf: { xs: 'center', sm: 'center' },
                             mb: { xs: 2, sm: 0 }
                         }}>
-                            Sản phẩm mới
+                            Tất cả sản phẩm
                         </Typography>
 
                         <FormControl sx={{
@@ -82,15 +84,11 @@ export default function Product_list() {
                         </FormControl>
                     </Box>
                 </Grid>
-                {productList.map((item) => (
-                    <Grid item xs={12} sm={6} md={4} lg={3} key={item.id}>
-                        <Box bgcolor="primary.main" p={2}>
-                            <Typography variant="h6">{item.name}</Typography>
-                            <Typography>${item.price}</Typography>
-                            <img src={item.imageUrl} alt={item.name} width="100%" />
-                        </Box>
-                    </Grid>
-                ))}
+                {
+                      productList ? productList.map((item, index) => (<Product_item item={item} index={index} />))
+                      : navigate("*")
+                }
+         
             </Grid>
         </Container>
     );

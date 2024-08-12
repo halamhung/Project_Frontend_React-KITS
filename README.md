@@ -15,3 +15,11 @@ sử dụng redux để quản lý các state
 \*Các chú thích
 
 1: Autocomplete cung cấp tính năng tự động nhận diện những gì người dùng nhập vào
+
+Hàm định giá tiền việt 
+  // Định dạng giá theo tiền Việt Nam Đồng
+       const formattedPrice = item.price.toLocaleString('vi-VN', {
+        style: 'currency',
+        currency: 'VND',
+        minimumFractionDigits: 0
+    });

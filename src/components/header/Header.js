@@ -6,12 +6,13 @@ import Logo from '../../assets/img/logo_shop.png';
 import theme from '../theme';
 import { List } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(true);
-
+  const { carts } = useSelector(state => state.carts); // Lấy thông tin giỏ hàng từ Redux store
   const handleDrawerOpen = () => setDrawerOpen(true);
   const handleDrawerClose = () => setDrawerOpen(false);
 
@@ -183,8 +184,8 @@ const Header = () => {
                         <StarIcon />
                       </Badge>
                     </IconButton>
-                    <IconButton aria-label="shopping cart">
-                      <Badge badgeContent={4} color="secondary">
+                    <IconButton aria-label="shopping cart" component={Link} to="/cart"> {/* Thêm Link đến trang giỏ hàng */}
+                      <Badge badgeContent={carts.length} color="secondary"> {/* Hiển thị số lượng sản phẩm trong giỏ hàng */}
                         <ShoppingCartIcon />
                       </Badge>
                     </IconButton>

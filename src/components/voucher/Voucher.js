@@ -76,7 +76,15 @@ export default function Voucher() {
                             <Divider orientation="vertical" flexItem style={{ margin: '0 10px' }} />
                             <CardContent style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
                                 <Typography variant="h4">Voucher</Typography>
-                                <Typography variant="body2">{item.name}</Typography>
+                                <Typography
+                                    variant="body1"
+                                    component="h3"
+                                    align="center"
+                                    sx={{
+                                        minHeight: '5em', // Đảm bảo chiều cao cố định, 3em = chiều cao của hai dòng văn bản
+                                        
+                                    }}
+                                >{item.name}</Typography>
                                 <Typography variant="h5">
                                     {item.value}%<span> Coupon</span>
                                 </Typography>
